@@ -1,0 +1,21 @@
+.wrapperLi{
+    padding: 20px 0px;
+    line-height: 18px;
+    list-style-type: none;
+    width: 750px;
+}
+.wrapperRecord{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #61dafb;
+    border-radius: 5px;
+    padding: 10px 10px;
+    font-size: 16px;
+
+}
+.textRecord {
+    width: 400px;
+    word-wrap: break-word;
+}
+
