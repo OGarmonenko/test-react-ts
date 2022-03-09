@@ -14,7 +14,7 @@ const Header: FC <Header_Props>= ({handleClickAdd}) => {
 
   const createRecord = (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
-      const date: number = moment.now()
+      const date: number = moment.now();
       const newRecord: Record_Props = {
           id: date,
           item: record,
@@ -24,9 +24,13 @@ const Header: FC <Header_Props>= ({handleClickAdd}) => {
     setRecord('');
   };
 
+  const validateData = (e: React.ChangeEvent<HTMLInputElement>) =>{
+      setRecord(e.target.value.replace(/[а-яё]/gi,""))
+    }
+
   return (
     <form className={ styles.wrapperHeader } >
-      <CustomInput type={ "text" } placeholder={ "Enter record..." } value={ record } onChange={e => setRecord(e.target.value)} />
+      <CustomInput type={ "text" } placeholder={ "Enter record..." } value={ record } onChange={ validateData }/>
       <CustomButton disabled={ !record.length } onClick={createRecord}> Add </CustomButton >
     </form>
   );
