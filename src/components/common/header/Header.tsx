@@ -14,7 +14,7 @@ const Header: FC <Header_Props>= ({handleClickAdd}) => {
 
   const createRecord = (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
-      const date: number = moment.now()
+      const date: number = moment.now();
       const newRecord: Record_Props = {
           id: date,
           item: record,

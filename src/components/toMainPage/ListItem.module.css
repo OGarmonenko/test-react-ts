@@ -2,7 +2,7 @@
     padding: 20px 0px;
     line-height: 18px;
     list-style-type: none;
-    width: 750px;
+    width: 1500px;
 }
 .wrapperRecord{
     display: flex;
@@ -15,7 +15,14 @@
 
 }
 .textRecord {
-    width: 400px;
+    width: 600px;
     word-wrap: break-word;
+}
+.numberRecord {
+    width: 300px;
+    word-wrap: break-word;
+}
+.dateRecord {
+    width: 250px;
 }
 
