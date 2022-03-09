@@ -11,14 +11,14 @@ const App: FC = ()=> {
         setRecords([...records, record]);
     };
 
-    const removeRecord5 = (record: Record_Props) => {
+    const removeRecord = (record: Record_Props) => {
         setRecords(records.filter(r => r.id !== record.id));
     };
 
     return (
         <div>
-              <Header addRecord={addRecord} />
-              <Content records={records} removeRecord4={removeRecord5}  />
+              <Header handleClickAdd={addRecord} />
+              <Content records={records} onClickDelete={removeRecord}  />
         </div>
     );
 }

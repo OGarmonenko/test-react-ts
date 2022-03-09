@@ -6,13 +6,13 @@ import {Record_Props} from "../../types/types";
 
 interface ListItem_Props {
     record: Record_Props;
-    removeRecord:(record: Record_Props) => void;
+    selectRecord:(record: Record_Props) => void;
 }
 
-const ListItem: FC <ListItem_Props> = ({record, removeRecord}) => {
+const ListItem: FC <ListItem_Props> = ({record, selectRecord}) => {
 
     const handleClick = () => {
-        removeRecord(record);
+        selectRecord(record);
     }
 
   return (

@@ -6,28 +6,28 @@ import styles from './Header.module.css';
 import {Record_Props} from "../../../types/types";
 
 interface Header_Props {
-  addRecord:(record: Record_Props) => void;
+    handleClickAdd:(record: Record_Props) => void;
 }
 
-const Header: FC <Header_Props>= ({addRecord}) => {
+const Header: FC <Header_Props>= ({handleClickAdd}) => {
   const [record, setRecord] = useState<string>('');
 
-  const handleClickAdd = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const createRecord = (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
-    const date: number = moment.now()
-    const newRecord: Record_Props = {
-      id: date,
-      item: record,
-      date: date,
-    };
-    addRecord(newRecord);
+      const date: number = moment.now()
+      const newRecord: Record_Props = {
+          id: date,
+          item: record,
+          date: date,
+        };
+      handleClickAdd(newRecord);
     setRecord('');
   };
 
   return (
     <form className={ styles.wrapperHeader } >
       <CustomInput type={ "text" } placeholder={ "Enter record..." } value={ record } onChange={e => setRecord(e.target.value)} />
-      <CustomButton disabled={ !record.length } onClick={handleClickAdd}> Add </CustomButton >
+      <CustomButton disabled={ !record.length } onClick={createRecord}> Add </CustomButton >
     </form>
   );
 };
