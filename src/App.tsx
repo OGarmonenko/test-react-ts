@@ -1,26 +1,35 @@
 import './App.css';
-import Header from './components/common/header/Header';
-import Content from './components/toMainPage/Content';
-import React, {FC, useState} from 'react';
-import {Record_Props} from "./types/types";
+import React, {useState} from 'react';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import MainPage from './components/pages/MainPage';
+import CardPage from './components/pages/cardPage/CardPage';
+import {Record_Props} from './types/types';
+import constants from './constants/constants'
+import ErrorPage from "./components/pages/errorPage/ErrorPage";
 
-const App: FC = ()=> {
-    const [records, setRecords] = useState<Record_Props[]>([]);
+export interface IRoute {
+    path: string;
+    name: string;
+    exact: boolean;
+    element: any;
+    component: any;
+    props?: any;
+};
 
-    const addRecord = (record: Record_Props) => {
-        setRecords([...records, record]);
-    };
-
-    const removeRecord = (record: Record_Props) => {
-        setRecords(records.filter(r => r.id !== record.id));
-    };
+const App = ()=> {
+    const [state, setState] = useState<Record_Props[]>([]);
 
     return (
-        <div>
-              <Header handleClickAdd={addRecord} />
-              <Content records={records} onClickDelete={removeRecord}  />
-        </div>
-    );
+        <BrowserRouter>
+                <Routes>
+                <Route path={constants.ROUTES.MAIN_PATH}
+                       element={ <MainPage setData={(item: Record_Props[]) => setState(item)} records={state}/> }
+                />
+                <Route path={constants.ROUTES.CARD_PATH + ':recordID'} element={ <CardPage records={state} /> } />
+                <Route path={constants.ROUTES.ERROR_PATH} element={<ErrorPage />}/>
+                </Routes>
+        </BrowserRouter>
+    )
 }
 
 export default App;

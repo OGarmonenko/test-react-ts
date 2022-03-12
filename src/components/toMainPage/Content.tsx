@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import List from './List';
 import styles from  './Content.module.css';
-import {Record_Props} from "../../types/types";
+import {Record_Props} from '../../types/types';
 
 interface Content_Prop {
   records: Record_Props[];
@@ -11,8 +11,9 @@ interface Content_Prop {
 const Content: FC <Content_Prop> = ({records, onClickDelete}) => {
 
   const setRecord = (record: Record_Props) => {
-    onClickDelete(record)
-  }
+   onClickDelete(record);
+  };
+
   return (
     <div className={ styles.wrapperContent }>
       {!records.length
