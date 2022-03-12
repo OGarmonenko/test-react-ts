@@ -3,7 +3,7 @@ import CustomButton from '../../custom/button/CustomButton';
 import CustomInput from '../../custom/input/CustomInput';
 import * as moment from 'moment';
 import styles from './Header.module.css';
-import {Record_Props} from "../../../types/types";
+import {Record_Props} from '../../../types/types';
 
 interface Header_Props {
     handleClickAdd:(record: Record_Props) => void;
@@ -24,9 +24,9 @@ const Header: FC <Header_Props>= ({handleClickAdd}) => {
     setRecord('');
   };
 
-  const validateData = (e: React.ChangeEvent<HTMLInputElement>) =>{
-      setRecord(e.target.value.replace(/[а-яё]/gi,""))
-    }
+  const validateData = (e: React.ChangeEvent<HTMLInputElement>) => {
+      setRecord(e.target.value.replace(/[а-яё]/gi,""));
+    };
 
   return (
     <form className={ styles.wrapperHeader } >

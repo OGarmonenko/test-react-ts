@@ -1,0 +1,18 @@
+.wrapperNavbar {
+    padding: 5px 25px;
+    background-color: #61dafb;
+    display: flex;
+    align-items: center;
+    height: 70px;
+    max-height: 70px;
+    gap: 25px;
+}
+.link {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+.link:hover {
+    color: #4b0082;
+}

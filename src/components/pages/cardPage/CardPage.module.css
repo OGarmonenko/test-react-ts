@@ -1,0 +1,28 @@
+.wrapperCard {
+    margin: 25px 25px;
+    padding: 25px 25px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border: 1px solid #61dafb;
+    border-radius: 5px;
+    word-wrap: break-word;
+}
+.title {
+    padding: 25px 0;
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.subTitle {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.dataRecord {
+    line-height: 21px;
+}
+
