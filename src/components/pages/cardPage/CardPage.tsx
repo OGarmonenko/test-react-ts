@@ -34,7 +34,7 @@ const CardPage: FC <CardPage_Props> = ({records}) => {
                 </div>
                 <div>
                   <p className={ styles.subTitle}> Date: </p>
-                   <span className={ styles.dataRecord }> { getDateRecord(selectRecord) } </span>
+                   <span className={ styles.dataRecord }> { getDateRecord(selectRecord.date) } </span>
                 </div>
               </div>
             }

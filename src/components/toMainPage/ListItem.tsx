@@ -28,9 +28,9 @@ const ListItem: FC <ListItem_Props> = ({record, selectRecord}) => {
     <li className={ styles.wrapperLi }>
       <div className={ styles.wrapperRecord } onClick={handleClickRow}>
         <p className={ styles.textRecord }>{ record.item }</p>
-          <p className={ styles.numberRecord }>{ getNumberRecord(record.item) }</p>
-          <p className={ styles.dateRecord }>{ getDateRecord(record) }</p>
-          <CustomButton onClick={handleClickButton} >Delete</CustomButton>
+        <p className={ styles.numberRecord }>{ getNumberRecord(record.item) }</p>
+        <p className={ styles.dateRecord }>{ getDateRecord(record.date) }</p>
+        <CustomButton onClick={handleClickButton} >Delete</CustomButton>
       </div>
     </li>
   );

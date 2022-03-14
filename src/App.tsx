@@ -5,16 +5,7 @@ import MainPage from './components/pages/MainPage';
 import CardPage from './components/pages/cardPage/CardPage';
 import {Record_Props} from './types/types';
 import constants from './constants/constants'
-import ErrorPage from "./components/pages/errorPage/ErrorPage";
-
-export interface IRoute {
-    path: string;
-    name: string;
-    exact: boolean;
-    element: any;
-    component: any;
-    props?: any;
-};
+import ErrorPage from './components/pages/errorPage/ErrorPage';
 
 const App = ()=> {
     const [state, setState] = useState<Record_Props[]>([]);
