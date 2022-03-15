@@ -1,6 +1,9 @@
 .wrapperContent {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+   /* align-items: center;*/
+    width: 100%;
     min-height: calc(100vh - 80px);
 }
 .textError {

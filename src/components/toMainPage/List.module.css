@@ -9,7 +9,8 @@
     justify-content: center;
 }
 .list {
-    padding-inline-start: 0px;
+    padding-inline-start: 0;
+    width: 100%;
 }
 .wrapperListItem {
     height: calc(100vh - 130px);
@@ -17,6 +18,8 @@
     margin: 0;
     padding-left:0;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
 }

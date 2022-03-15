@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import styles from './List.module.css';
 import ListItem from './ListItem';
-import {Record_Props} from "../../types/types";
+import {Record_Props} from '../../types/types';
 
 interface List_Props {
     records: Record_Props[];

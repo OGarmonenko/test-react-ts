@@ -30,7 +30,7 @@ const ListItem: FC <ListItem_Props> = ({record, selectRecord}) => {
         <p className={ styles.textRecord }>{ record.item }</p>
         <p className={ styles.numberRecord }>{ getNumberRecord(record.item) }</p>
         <p className={ styles.dateRecord }>{ getDateRecord(record.date) }</p>
-        <CustomButton onClick={handleClickButton} >Delete</CustomButton>
+        <CustomButton onClick={handleClickButton}>Delete</CustomButton>
       </div>
     </li>
   );
