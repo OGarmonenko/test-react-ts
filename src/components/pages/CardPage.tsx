@@ -9,7 +9,7 @@ interface CardPage_Props {
 }
 
 const CardPage: FC <CardPage_Props> = ({records}) => {
-    const [selectRecord, setSelectRecord] = useState<Record_Props>({} as Record_Props);
+    const [selectRecord, setSelectRecord] = useState<Record_Props | null>(null);
     const {recordID} = useParams<string>();
 
     useEffect(()=> {
@@ -17,11 +17,10 @@ const CardPage: FC <CardPage_Props> = ({records}) => {
     }, [])
 ;
 
-    if(selectRecord.id === undefined) return null;
     return (
         <div>
             <Navbar />
-            <CardItem selectRecord={selectRecord}/>
+            {selectRecord && <CardItem selectRecord={selectRecord}/>}
         </div>
     );
 };

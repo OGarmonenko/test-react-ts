@@ -10,7 +10,6 @@ interface CardItem_Props {
 
 const CardItem: FC <CardItem_Props> = ({selectRecord}) => {
 
-    if(selectRecord.id === undefined) return null;
     return (
         <>
         <div className={styles.title}>Selected</div>
