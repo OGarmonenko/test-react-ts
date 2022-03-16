@@ -20,17 +20,19 @@ const ListItem: FC <ListItem_Props> = ({record, selectRecord}) => {
         selectRecord(record);
     };
 
-    const handleClickRow = () => {
-        history(constants.ROUTES.CARD_PATH+`${record.id}`);
+    const handleClickRow = (e : React.MouseEvent<HTMLDivElement>) => {
+        if (!window.getSelection()?.toString()) {
+            history(constants.ROUTES.CARD_PATH+`${record.id}`);
+        }
     };
 
   return (
     <li className={ styles.wrapperLi }>
       <div className={ styles.wrapperRecord } onClick={handleClickRow}>
         <p className={ styles.textRecord }>{ record.item }</p>
-          <p className={ styles.numberRecord }>{ getNumberRecord(record.item) }</p>
-          <p className={ styles.dateRecord }>{ getDateRecord(record) }</p>
-          <CustomButton onClick={handleClickButton} >Delete</CustomButton>
+        <p className={ styles.numberRecord }>{ getNumberRecord(record.item) }</p>
+        <p className={ styles.dateRecord }>{ getDateRecord(record.date) }</p>
+        <CustomButton onClick={handleClickButton}>Delete</CustomButton>
       </div>
     </li>
   );

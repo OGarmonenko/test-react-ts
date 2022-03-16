@@ -5,14 +5,30 @@
     align-items: center;
     height: 70px;
     max-height: 70px;
-    gap: 25px;
 }
-.link {
+.wrapperSubNav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 110px;
+    height: 40px;
+    border: 1px solid #ffffff;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+.wrapperSubNav:hover {
+    border: 1px solid #4F95DA;
+    opacity: 0.8;
+}
+.arrow {
+    width: 25px;
+    height:25px;
+}
+.itemNavbar {
     color: #ffffff;
     text-decoration: none;
     font-weight: bold;
     font-size: 20px;
-}
-.link:hover {
-    color: #4b0082;
+    padding: 0 0 0 10px;
 }
