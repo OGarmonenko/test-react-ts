@@ -20,8 +20,10 @@ const ListItem: FC <ListItem_Props> = ({record, selectRecord}) => {
         selectRecord(record);
     };
 
-    const handleClickRow = () => {
-        history(constants.ROUTES.CARD_PATH+`${record.id}`);
+    const handleClickRow = (e : React.MouseEvent<HTMLDivElement>) => {
+        if (!window.getSelection()?.toString()) {
+            history(constants.ROUTES.CARD_PATH+`${record.id}`);
+        }
     };
 
   return (
