@@ -1,26 +1,25 @@
 import React, {FC, useEffect, useState} from 'react';
 import {Record_Props} from '../../types/types';
-import {useParams} from 'react-router-dom';
 import Navbar from '../common/navbar/Navbar';
 import CardItem from '../toCardPage/CardItem';
+import {storeService} from '../../store/storeService';
 
-interface CardPage_Props {
-    records: Record_Props[];
-}
-
-const CardPage: FC <CardPage_Props> = ({records}) => {
-    const [selectRecord, setSelectRecord] = useState<Record_Props | null>(null);
-    const {recordID} = useParams<string>();
+const CardPage: FC = () => {
+    const [selectedRecord, setSelectedRecord] = useState<Record_Props | null>(null);
 
     useEffect(()=> {
-        setSelectRecord(records.filter(r => r.id === Number(recordID))[0]);
-    }, [])
-;
+        try {
+            const result: Record_Props = storeService.getRecord();
+            setSelectedRecord(result);
+        } catch (e) {
+            console.error('Error get data');
+        }
+    },[])
 
     return (
         <div>
             <Navbar />
-            {selectRecord && <CardItem selectRecord={selectRecord}/>}
+            {selectedRecord && <CardItem selectedRecord={selectedRecord}/>}
         </div>
     );
 };
