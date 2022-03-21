@@ -13,13 +13,13 @@ const initialState: State = {
 export const storeService: Service = {
     getRecord: () => initialState.selectedRecord,
     getRecords: () => initialState.records,
-    addRecord: (payload: Record_Props) => {
-        initialState.records.push(payload);
-        return initialState.records;
+    addRecord: (payload: Record_Props, state = initialState) => {
+        state.records.push(payload);
+        return state.records;
         },
     removeRecord: (payload, state = initialState) => {
         state.records = state.records.filter(r => r.id !== payload.id);
-        return initialState.records;
+        return state.records;
     },
     findRecord: (payload, state = initialState) => {
         state.selectedRecord = {...payload};
