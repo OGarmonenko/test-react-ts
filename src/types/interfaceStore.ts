@@ -8,7 +8,7 @@ export interface State {
 export interface Service {
     getRecord: () => Record_Props;
     getRecords: () => Record_Props[];
-    addRecord: (payload: Record_Props) => Record_Props[];
+    addRecord: (payload: Record_Props, state?: State) => Record_Props[];
     removeRecord: (payload: Record_Props, state?: State) => Record_Props[];
     findRecord: (payload: Record_Props, state?: State) => void;
 }
