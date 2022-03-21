@@ -6,22 +6,24 @@ import getNumberRecord from '../../utils/numberUtils';
 import {useNavigate} from 'react-router-dom';
 import constants from '../../constants/constants';
 import getDateRecord from '../../utils/dateUtils';
+import {storeService} from '../../store/storeService';
 
 interface ListItem_Props {
     record: Record_Props;
-    selectRecord:(record: Record_Props) => void;
+    onRemove:(record: Record_Props) => void;
 }
 
-const ListItem: FC <ListItem_Props> = ({record, selectRecord}) => {
+const ListItem: FC <ListItem_Props> = ({record, onRemove}) => {
     let history = useNavigate();
 
     const handleClickButton = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.stopPropagation();
-        selectRecord(record);
+        onRemove(record);
     };
 
     const handleClickRow = (e : React.MouseEvent<HTMLDivElement>) => {
         if (!window.getSelection()?.toString()) {
+            storeService.findRecord(record);
             history(constants.ROUTES.CARD_PATH+`${record.id}`);
         }
     };

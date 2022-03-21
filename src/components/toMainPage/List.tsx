@@ -4,26 +4,26 @@ import ListItem from './ListItem';
 import {Record_Props} from '../../types/types';
 
 interface List_Props {
-    records: Record_Props[];
     title: string;
-    getRecord:(record: Record_Props) => void;
+    records: Record_Props[];
+    removeRecord: (record: Record_Props) => void;
 }
 
-const List: FC <List_Props> = ({records, title, getRecord }) => {
+const List: FC <List_Props> = ({ title, records, removeRecord }) => {
 
-    const onClickRecord = (record: Record_Props) => {
-        getRecord(record)
-    }
+    const onClickDelete = (record: Record_Props) => {
+        removeRecord(record);
+    };
 
   return (
     <div className={ styles.wrapperList }>
       <span className={ styles.titleList }>{ title }</span>
       <div className={ styles.wrapperListItem } >
-      <ol className={ styles.list }>
-      {records.map((record) =>
-        <ListItem record={ record } key={ record.id } selectRecord={ onClickRecord }  />
-      )}
-      </ol>
+        <ol className={ styles.list }>
+          {records.map((record) =>
+            <ListItem record={ record } key={ record.id } onRemove={ onClickDelete }  />
+           )}
+        </ol>
       </div>
     </div>
   );
